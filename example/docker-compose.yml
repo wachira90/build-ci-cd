@@ -1,0 +1,12 @@
+services:
+  jenkins:
+    image: jenkins-with-docker:v1
+    user: root
+    privileged: true
+    ports:
+      - 8088:8080
+      - 50000:50000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp/home:/var/jenkins_home
+    command: docker -v
